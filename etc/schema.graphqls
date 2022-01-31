@@ -1,0 +1,12 @@
+type Query {
+    CustomerOrderList: SalesOrder @resolver(class: "Codilar\\CustomerGraphQl\\Model\\Resolver\\CustomerOrder") @doc(description: "The query returns information about Top 5 customer orders with more amount")
+}
+type SalesOrder @doc(description: "Sales Order graphql gather data of order item information") {
+    fetchRecords : [CustomerOrderRecord] @doc(description: "An array of customer placed order fetch records")
+}
+type CustomerOrderRecord @doc(description: "Customer placed order items information") {
+    increment_id: String @doc(description: "Increment Id of Sales Order")
+    customer_name: String @doc(description: "Customer name of Sales Order")
+    grand_total: String @doc(description: "Grand total of Sales Order")
+    qty: Int @doc(description: "Order item quantity")
+}
